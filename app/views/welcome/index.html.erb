@@ -1,2 +1,13 @@
+<body class="container welcome">
 <h1>Welcome to the app</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= link_to 'Create New Company', new_company_path %>
+<br>
+</br>
+<%= link_to 'Create New Employee', new_employee_path %>
+<br>
+</br>
+<%= link_to 'All Employees', controller: 'employees' %>
+<br>
+</br>
+<%= link_to 'All Companies', controller: 'companies' %>
+</body>
