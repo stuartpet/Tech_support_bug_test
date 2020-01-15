@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="page-header">
+    <h1>Listing Employees</h1>
+  </div>
+</div>
+
+<div class="container">
+  <%= link_to 'Create New Employee', new_employee_path %>
+  <br>
+  </br>
+  <%= link_to 'Home', root_path %>
+  <br>
+  <br></br>
+</div>
+
+<div class="container">
+
+  <table class="table table-striped">
+    <tr>
+      <th>Forename</th>
+      <th>Surname</th>
+      <th class="text-center">Action</th>
+    </tr>
+
+    <tbody>
+      <% @employee.each do |employee| %>
+        <tr>
+          <td><%= employee.forename %></td>
+          <td><%= employee.surname %></td>
+          <td class="text-center">
+          <%= link_to 'Show', employee_path(employee), class: 'label
+          label-info'%>
+          <%= link_to 'Destroy', employee_path(employee), method: :delete, data:
+          { confirm: 'Are you sure?' }, class: 'label label-danger' %>
+          <%= link_to 'Edit', edit_employee_path(employee), class: 'label
+          label-success' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

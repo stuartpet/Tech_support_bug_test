@@ -1,14 +1,13 @@
 <div class="container">
   <div class="page-header">
-<h1>New Employee</h1>
-</div>
-</div>
-
+    <h1>Edit Employee</h1>
+    </div>
+    </div>
 <div class="container">
-<%= form_with scope: :employee, url: employees_path, local: true do |form| %>
+<%= form_with(model: @employee, local: true) do |form| %>
 
-<% if @employee.errors.any? %>
-    <div id="error">
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
       <h2>
         <%= pluralize(@employee.errors.count, "error") %> prohibited
         this employee from being saved:
@@ -19,22 +18,19 @@
         <% end %>
       </ul>
     </div>
-    </div>
   <% end %>
 
-<p>
-  <div class="container">
-    <div class="form-group">
-  <%= form.label :forename %><br>
-  <%= form.text_field :forename %>
+  <div class="form-group">
+<%= form.label :forename %><br>
+<%= form.text_field :forename %>
 
 <p>
-  <%= form.label :surname %><br>
-  <%= form.text_field :surname %>
+<%= form.label :surname %><br>
+<%= form.text_field :surname %>
 </p>
 
 <p>
-  <button type="submit" class="btn btn-primary">Save</button>
+<button type="submit" class="btn btn-primary">Save</button>
 </p>
 <% end %>
 
