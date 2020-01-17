@@ -9,9 +9,22 @@
   <%= @company.details %>
 </p>
 
+<h2>Employees</h2>
+<% for employee in @company.employees %>
+<ul>
+  <li><%= employee.forename %>
+    <%= employee.surname %></li>
+    </ul>
+    <% end %>
 
 
-<%= link_to 'Back to companies List', companies_path %>
+<%= link_to 'Add Employee', new_company_employee_path(@company) %> |
+<br>
+</br>
+<%= link_to 'Employees list', company_employees_path(@company) %> |
+<br>
+</br>
+<%= link_to 'Back to companies List', companies_path %> |
 <br>
 </br>
 <%= link_to 'Home', root_path %>

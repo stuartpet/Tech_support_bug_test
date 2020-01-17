@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-  <%= link_to 'Create New Employee', new_employee_path %>
+  <%= link_to 'Create New Employee', new_company_employee_path(@company) %>
   <br>
   </br>
   <%= link_to 'Home', root_path %>
@@ -23,16 +23,16 @@
     </tr>
 
     <tbody>
-      <% @employee.each do |employee| %>
+      <% @employees.each do |employee|%>
         <tr>
           <td><%= employee.forename %></td>
           <td><%= employee.surname %></td>
           <td class="text-center">
-          <%= link_to 'Show', employee_path(employee), class: 'label
+          <%= link_to 'Show Company', [@company], class: 'label
           label-info'%>
-          <%= link_to 'Destroy', employee_path(employee), method: :delete, data:
+          <%= link_to 'Destroy Employee', [@company, employee], method: :delete, data:
           { confirm: 'Are you sure?' }, class: 'label label-danger' %>
-          <%= link_to 'Edit', edit_employee_path(employee), class: 'label
+          <%= link_to 'Edit Employee', edit_company_employee_path(@company, employee), class: 'label
           label-success' %>
           </td>
         </tr>
