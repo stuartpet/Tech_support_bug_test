@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class CompaniesController < ApplicationController
+
   def index
     @company = Company.all
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.find(permitted_params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
+    @company = Company.new(permitted_params[:company])
 
     if @company.save
       redirect_to @company
@@ -24,7 +25,7 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    @company = Company.find(params[:id])
+    @company = Company.find(permitted_params[:id])
     @company.destroy
 
     redirect_to companies_path
@@ -32,7 +33,7 @@ class CompaniesController < ApplicationController
 
   private
 
-  def company_params
-    params.require(:company).permit(:name, :details)
+  def permitted_params
+    params.permit!
   end
 end

@@ -3,8 +3,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :employees
-  resources :companies
+  resources :companies do
+    resources :employees
+  end
 
   root 'welcome#index'
 
