@@ -16,6 +16,10 @@ These instructions will get the application up and running on your local machine
 * Follow this link to the test repo XXXXX
 * Clone the repository to your machine - you can follow these instructions:
 https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+* Once you have the repository cloned to your machine you will need to run `bin/setup` 
+* 
+
+
 
 
 
