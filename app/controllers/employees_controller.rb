@@ -26,7 +26,8 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    if @employee.update({forename: permitted_params[:forename], surname: permitted_params[:surname]})
+    if @employee.update(forename: permitted_params[:forename],
+                        surname: permitted_params[:surname])
       redirect_to company_employees_path(@company)
     else
       render 'edit'
