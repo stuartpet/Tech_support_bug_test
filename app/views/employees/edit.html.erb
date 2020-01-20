@@ -1,44 +1,35 @@
-<div class="container">
-  <div class="page-header">
-    <h1>Edit Employee</h1>
-    </div>
-    </div>
-<div class="container">
+<h2 class="pb-2">Edit Employee</h2>
+
 <%= form_with(model: @employees, url: :company_employee ,method: :put, local: true) do |form| %>
 
-
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@employee.errors.count, "error") %> prohibited
-        this employee from being saved:
-      </h2>
-      <ul>
-        <% @employee.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-<%= form.label :forename %><br>
-<%= form.text_field :forename %>
-
-<p>
-<%= form.label :surname %><br>
-<%= form.text_field :surname %>
-</p>
-
-<p>
-<button type="submit" class="btn btn-primary remote: true">Save</button>
-</p>
+<% if @employee.errors.any? %>
+  <div id="error_explanation">
+    <h2 class="pb-2">
+      <%= pluralize(@employee.errors.count, "error") %>
+      prohibited this employee from being saved:
+    </h2>
+    <ul>
+      <% @employee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
-<%= link_to 'Back to employees list', company_employees_path(@company) %>
-<br>
-</br>
-<%= link_to 'Home', root_path %>
+<div class="form-group">
+  <%= form.label :forename %>
+  <%= form.text_field :forename, :value => @employee.forename, class: "form-control" %>
 
-</div>
+  <p>
+    <%= form.label :surname %>
+    <%= form.text_field :surname, :value => @employee.surname, class: "form-control" %>
+  </p>
+
+  <p>
+    <button type="submit" class="btn btn-primary remote: true">Save</button>
+    <%= link_to "Back to employees list", company_employees_path(@company), class: "btn btn-outline-primary" %>
+  </p>
+<% end %>
+
+
 </div>

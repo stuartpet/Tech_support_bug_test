@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(permitted_params[:id])
+    @company = Company.first
   end
 
   def new

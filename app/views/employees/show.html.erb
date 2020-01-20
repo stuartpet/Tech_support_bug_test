@@ -1,4 +1,3 @@
-<div class="container-central">
 <p>
   <strong>Forename:</strong>
   <%= @employee.forename %>
@@ -9,9 +8,6 @@
   <%= @employee.surname %>
 </p>
 
-</div>
+<%= link_to "Edit", edit_company_employee_path(@company, @employee), class: "btn btn-primary" %>
 
-<%= link_to 'Back to employees List', company_employees_path(@company) %>
-<br>
-</br>
-<%= link_to 'Edit', edit_company_employee_path(@company, @employee) %>
+<%= link_to "Back to employees List", company_employees_path(@company), class: "btn btn-outline-primary" %>
