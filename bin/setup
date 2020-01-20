@@ -21,6 +21,7 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n == Preparing database =="
   system 'bundle exec rails db:environment:set db:drop || echo "no need drop db"'
+  puts "\ == seeding database =="
   system! 'bundle exec rails db:create db:migrate db:seed'
 
   # Install JavaScript dependencies

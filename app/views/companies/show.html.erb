@@ -1,40 +1,29 @@
-<div class="container">
+<h3><%= @company.name %></h3>
+<p><%= @company.details %></p>
 
-  <div class="page-header">
+<h3>Employees</h3>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <h1>Company Name:</h1>
-      <%= @company.name %>
-      <br></br>
-
-      <h2>Company Details:</h2>
-      <%= @company.details %>
-    </div>
-  </div>
-
-  <div class="container">
-
-  <table class="table table-striped">
-    <th>Employees</th>
-    <tr>
+      <th>ID</th>
       <th>Forename</th>
       <th>Surname</th>
+      <th>Actions</th>
     </tr>
+  </thead>
 
-      <tbody>
-        <tr>
-          <% for employee in @company.employees %>
-          <td><%= employee.forename %></td>
-          <td><%= employee.surname %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <tbody>
+    <% for employee in @company.employees %>
+      <tr>
+        <td><%= employee.id %></td>
+        <td><%= employee.forename %></td>
+        <td><%= employee.surname %></td>
+        <td><%= link_to "Edit", edit_company_employee_path(employee), class: "btn btn-primary btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <%= link_to 'Add Employee', new_company_employee_path(@company) %>
-  <br></br>
-  <%= link_to 'Employees list', company_employees_path(@company) %>
-  <br></br>
-  <%= link_to 'Back to companies List', companies_path %>
-  <br></br>
-  <%= link_to 'Home', root_path %>
-</div>
+<%= link_to "Add Employee", new_company_employee_path(@company), class: "btn btn-primary" %>
+
+<%= link_to "Back to companies List", companies_path, class: "btn btn-outline-primary" %>
