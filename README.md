@@ -6,7 +6,7 @@ Test for the new CS tech support candidates
 ## Requirements
 
 1. Find the bugs that are causing issues in the application:
-* There are X bugs to find
+* There are 3 bugs to find
 * You are not required to fix the bugs, just identify what is causing them
 * Please document your bug finding process
 
@@ -17,9 +17,9 @@ These instructions will get the application up and running on your local machine
 * Clone the repository to your machine - you can follow these instructions:
 https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository
 * Once you have the repository cloned to your machine you will need to run `bin/setup` 
-* 
+* Once bin/setup has run you can go to http://localhost:3000 and start looking for the bugs
 
-
+Remeber to document how you identified the bugs and most of all, have fun!! 
 
 
 
